@@ -74,13 +74,27 @@ function startScreen(){
 		text('HIGHSCORES', width / 2, height / 2 + 35);
 		text('START', width/2,height/2 -25)
 }
+		
+function gameOn () {
+  background(bg);
+  stroke(255);
+  noFill();
 
-function gameOn(){
-		background(0, 0, 0)
-		fill(255)
-		textAlign(CENTER);
-		text('Hier is t spel', width / 2, height / 2)
-		text('click to start', width / 2, height / 2 + 20);
+  strokeWeight(5) ;
+  point(50, 400);
+
+  point(100, 300);
+  point(mouseX,mouseY);
+  point(600, 370);
+
+ strokeWeight(2) ;
+  beginShape();
+  curveVertex(50, 400);
+  curveVertex(100, 300); 
+  curveVertex(mouseX, mouseY); 
+  curveVertex(600, 370);
+
+  endShape();
 }
 
 function highScoreScreen(){
