@@ -10,8 +10,12 @@ function startscherm() {
     cursor("pointer")
     fill(oranje)
     rect(width/2 -100,height/2,200,50,10) //zorgt voor die oranje knoppen
-    if(mouseIsPressed){
+    if(!mouseIsPressed && mouseWasPressed){
+      mouseWasPressed = false;
+      gameFase = 1;
       screen = 1;
+    }else if(mouseIsPressed){
+      mouseWasPressed=true;
     }
 
   }
@@ -21,11 +25,16 @@ function startscherm() {
     fill(oranje)
     rect(width/2 -100,height/2 - 60,200,50,10)     
     cursor("pointer")
-    if(mouseIsPressed){
+    if(!mouseIsPressed && mouseWasPressed){
+      mouseWasPressed = false;
       screen = 3;
+    }else if(mouseIsPressed){
+      mouseWasPressed=true;
     }
+
   }
   else{
+    mouseWasPressed=false
     fill(oranje)
     rect(width/2 -100,height/2 - 60,200,50,10)
     rect(width/2 -100,height/2,200,50,10) //zorgt voor die oranje knoppen
