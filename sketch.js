@@ -6,7 +6,7 @@ var mouseWasPressed = false;
 
 function preload() {
   oranje = color(246, 178, 107);
-  bg = loadImage('image/BackgroundMenu.png');
+  bg = loadImage('image/AchtergrondGame.png');
   logo = loadImage('image/logo.png');
   relschopperimg = loadImage("image/relschopper.png");
   relProjectielimg = loadImage("image/RELprojectiel.png");
@@ -17,6 +17,7 @@ function setup() {
 }
 
 function draw() {
+  image(bg, -schuif, 0, 1800, 400)
 	if(screen == 0){
     startscherm();
   }else if(screen == 1){
@@ -30,7 +31,7 @@ function draw() {
 }
 		
 function gameOn () {
-  background(bg);
+  image(bg,-schuif,0, 2400, 400);
   relschopper();
   if (gameFase == 1) {
     cursor();
@@ -44,19 +45,23 @@ function gameOn () {
       yKracht = abs(mouseY - 260);
       herhaling = 0;
       xSnelheid = 0;
+      ySnelheid = 0;
+      xPositie =70
       gameFase = 2;
     }
   }
   if (gameFase == 2){
     relProjectiel(xKracht, yKracht);
+    //schuif = xPositie - 70;
+
   }
 }
 
 function highScoreScreen(){
+  image
   background(0, 0, 0)
 		fill(255)
 		textAlign(CENTER);
 		text('scoreboard', width / 2, height / 2)
 		text('komt hierzo', width / 2, height / 2 + 20);
 }
-

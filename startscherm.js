@@ -1,6 +1,6 @@
 function startscherm() {
 
-  background(bg);
+  //background(bg);
   image(logo, width/2 - 75, 15, 150, 120)
   
   noStroke();
