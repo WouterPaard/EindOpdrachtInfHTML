@@ -53,15 +53,15 @@ function gameOn () {
   if (gameFase == 2){
     relProjectiel(xKracht, yKracht);
     //schuif = xPositie - 70;
-
+    ggdMedewerker();
   }
 }
 
 function highScoreScreen(){
-  image
-  background(0, 0, 0)
-		fill(255)
-		textAlign(CENTER);
-		text('scoreboard', width / 2, height / 2)
+  fill(0)
+  image(bg, 0, 0, 600, 400)
+		text('scoreboard:', width / 2, height / 2 + 35)
 		text('komt hierzo', width / 2, height / 2 + 20);
+      fill(oranje) 
+      rect(width/2 -100,height/2 - 60,200,50,10)
 }
