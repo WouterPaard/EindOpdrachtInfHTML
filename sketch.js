@@ -1,5 +1,6 @@
 var screen = 0;
 var schuif = 0;
+var score = 0;
 var mouseWasPressed = false;
 
 
@@ -34,14 +35,16 @@ function draw() {
 function gameOn() {
   image(bg, -schuif, 0, 2400, 400);
   relschopper();
+  ggdMedewerker();
   if (gameFase == 1) {
-    cursor();
+    cursor("pointer");
     stroke(255);
     if (mouseIsPressed) {
       strokeWeight(dist(mouseX, mouseY, 90, 260) / 15)
       line(mouseX, mouseY, 90, 260);
       mouseWasPressed = true;
     } else if (mouseWasPressed) {
+      mouseWasPressed = false
       xKracht = abs(mouseX - 90);
       yKracht = abs(mouseY - 260);
       herhaling = 0;
@@ -49,16 +52,32 @@ function gameOn() {
       ySnelheid = 0;
       xPositie = 70
       gameFase = 2;
+      cursor();
     }
-  }
-  if (gameFase == 2) {
+  }else if (gameFase == 2) {
     relProjectiel(xKracht, yKracht);
-    //schuif = xPositie - 70;
-    ggdMedewerker();
+
   } else if (gameFase == 3) {
-    ggdMedewerker();
-    yPositie = 230 - ySnelheid * herhaling
-    image(relProjectielimg, xPositie, yPositie, relProjectielimg.width / 6, relProjectielimg.height / 6)
+
+    schuif = schuif + (550 - schuif)/20;
+    if (round(schuif) == 550){
+      gameFase = 4
+      xKracht = -random(70,100);
+      yKracht = random(70,100);
+      herhaling = 0;
+      xSnelheid = 0;
+      ySnelheid = 0;
+      xPositie = 550
+    }
+  } else if (gameFase == 4) {
+    ggdProjectiel(xKracht, yKracht)
+    console.log("fase 4")
+  }
+  else if(gameFase == 5) {
+    schuif = schuif -schuif/20;
+    if (round(schuif) == 0){
+      gameFase = 1;
+    }
   }
 }
 
