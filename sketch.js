@@ -36,6 +36,23 @@ function gameOn() {
   image(bg, -schuif, 0, 2400, 400);
   relschopper();
   ggdMedewerker();
+  noStroke();
+  if ((mouseX > 10) && (mouseX < 70) && (mouseY > 10) && (mouseY < 40)){
+    cursor("pointer")
+    fill(223, 130, 22);
+    if (!mouseIsPressed && mouseWasPressed) {
+      mouseWasPressed = false;
+      screen = 0;
+      schuif = 0;
+      gameFase = 1;
+    } else if (mouseIsPressed) {
+      mouseWasPressed = true;
+    }
+  }else {
+    cursor()
+    fill(oranje)
+  }
+  rect(10, 10, 60, 30, 10)
   if (gameFase == 1) {
     cursor("pointer");
     stroke(255);
