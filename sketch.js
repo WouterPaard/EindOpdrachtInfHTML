@@ -2,6 +2,7 @@ var screen = 0;
 var schuif = 0;
 var score = 0;
 var mouseWasPressed = false;
+var song;
 
 
 
@@ -12,11 +13,15 @@ function preload() {
   relschopperimg = loadImage("image/relschopper.png");
   relProjectielimg = loadImage("image/RELprojectiel.png");
   ggdMedewerkerimg = loadImage("image/ggdMedewerker.png");
+  song = loadSound('SoundsOfYourHeartbeat.mp3');
 }
 
 function setup() {
   createCanvas(600, 400);
+  song.play();
 }
+
+
 
 function draw() {
   image(bg, -schuif, 0, 1800, 400)
@@ -76,11 +81,11 @@ function gameOn() {
 
   } else if (gameFase == 3) {
 
-    schuif = schuif + (550 - schuif)/20;
+    schuif = 550/20 + 19*schuif/20 // + (550 - schuif)/20;
     if (round(schuif) == 550){
       gameFase = 4
-      xKracht = -random(70,100);
-      yKracht = random(70,100);
+      xKracht = -random(70,105);
+      yKracht = random(60,125);
       herhaling = 0;
       xSnelheid = 0;
       ySnelheid = 0;
@@ -91,7 +96,7 @@ function gameOn() {
     console.log("fase 4")
   }
   else if(gameFase == 5) {
-    schuif = schuif -schuif/20;
+    schuif = 19*schuif/20;
     if (round(schuif) == 0){
       gameFase = 1;
     }
