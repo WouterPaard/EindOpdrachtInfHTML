@@ -18,7 +18,7 @@ function preload() {
 
 function setup() {
   createCanvas(600, 400);
-  song.play();
+ 
 }
 
 
@@ -49,7 +49,7 @@ function gameOn() {
       mouseWasPressed = false;
       screen = 0;
       schuif = 0;
-      gameFase = 1;
+      gameFase = 1
     } else if (mouseIsPressed) {
       mouseWasPressed = true;
     }
@@ -65,6 +65,7 @@ function gameOn() {
       strokeWeight(dist(mouseX, mouseY, 90, 260) / 15)
       line(mouseX, mouseY, 90, 260);
       mouseWasPressed = true;
+      //song.play();
     } else if (mouseWasPressed) {
       mouseWasPressed = false
       xKracht = abs(mouseX - 90);
@@ -75,6 +76,7 @@ function gameOn() {
       xPositie = 70
       gameFase = 2;
       cursor();
+      song.play();
     }
   }else if (gameFase == 2) {
     relProjectiel(xKracht, yKracht);
