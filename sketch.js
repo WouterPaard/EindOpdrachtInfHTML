@@ -18,7 +18,6 @@ function preload() {
 
 function setup() {
   createCanvas(600, 400);
- 
 }
 
 
@@ -38,6 +37,9 @@ function draw() {
 }
 
 function gameOn() {
+ if (!song.isPlaying()) {
+    song.play();
+  }
   image(bg, -schuif, 0, 2400, 400);
   relschopper();
   ggdMedewerker();
@@ -58,6 +60,12 @@ function gameOn() {
     fill(oranje)
   }
   rect(10, 10, 60, 30, 10)
+  fill(oranje)
+  rect(100, 10, 85, 30, 10)
+  fill(0)
+  textSize(15)
+  text("MENU", 40,30)
+  text("SCORE: "+ score, 140, 30)
   if (gameFase == 1) {
     cursor("pointer");
     stroke(255);
@@ -65,7 +73,7 @@ function gameOn() {
       strokeWeight(dist(mouseX, mouseY, 90, 260) / 15)
       line(mouseX, mouseY, 90, 260);
       mouseWasPressed = true;
-      //song.play();
+//      song.play();
     } else if (mouseWasPressed) {
       mouseWasPressed = false
       xKracht = abs(mouseX - 90);
@@ -76,7 +84,7 @@ function gameOn() {
       xPositie = 70
       gameFase = 2;
       cursor();
-      song.play();
+
     }
   }else if (gameFase == 2) {
     relProjectiel(xKracht, yKracht);

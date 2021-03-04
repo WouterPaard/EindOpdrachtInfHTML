@@ -12,6 +12,6 @@ function ggdProjectiel(xKracht, yKracht){
   } else if ((yPositie > 230) && (xPositie > 70-schuif) && (xPositie < 130 - schuif)){
     console.log("raakt die papi")
     gameFase = 5;
-    score = score + 1;
+    score = score - 1;
   }
 }
