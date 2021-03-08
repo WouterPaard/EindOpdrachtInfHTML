@@ -2,8 +2,8 @@ var screen = 0;
 var schuif = 0;
 var score = 0;
 var mouseWasPressed = false;
-var song;
-
+let song;
+var oof;
 
 
 function preload() {
@@ -13,8 +13,10 @@ function preload() {
   relschopperimg = loadImage("image/relschopper.png");
   relProjectielimg = loadImage("image/RELprojectiel.png");
   ggdMedewerkerimg = loadImage("image/ggdMedewerker.png");
-  song = loadSound('SoundsOfYourHeartbeat.mp3');
+  song = loadSound('sounds/SoundsOfYourHeartbeat.mp3');
+  oof= loadSound('sounds/oof.mp3');
 }
+
 
 function setup() {
   createCanvas(600, 400);
@@ -23,6 +25,7 @@ function setup() {
 
 
 function draw() {
+
   image(bg, -schuif, 0, 1800, 400)
   if (screen == 0) {
     startscherm();
@@ -37,7 +40,7 @@ function draw() {
 }
 
 function gameOn() {
- if (!song.isPlaying()) {
+  if (!song.isPlaying()) {
     song.play();
   }
   image(bg, -schuif, 0, 2400, 400);

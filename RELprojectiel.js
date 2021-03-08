@@ -14,5 +14,8 @@ function relProjectiel(xKracht, yKracht){
     console.log("raakt die papi")
     gameFase = 3;
     score = score + 1;
+    if (!oof.isPlaying()) {
+      oof.play();
+    }
   }
 }

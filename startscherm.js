@@ -1,5 +1,4 @@
 function startscherm() {
-
   //background(bg);
   image(logo, width / 2 - 75, 15, 150, 120)
 
