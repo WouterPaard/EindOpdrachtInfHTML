@@ -44,21 +44,19 @@ function draw() {
 
 function gameOn() {
   muis = ""
-  if (!song.isPlaying() && muziekAan) {
-   song.play();
-  } else if (song.isPlaying() && !muziekAan){
-    song.stop()
-  }
 
-  
   image(bg, -schuif, 0, 2400, 400);
   image(geluidAan, 550, 8, 34, 34);
   relschopper();
   ggdMedewerker();
   noStroke();
   if (muziekAan) {
+    if (!song.isPlaying()) {
+     song.play();
+    }
     image(geluidAan, 550, 8, 34, 34);    
   } else{
+    song.pause();
     image(geluidUit, 550, 8, 34, 34);   
   }
     if ((mouseX > 550) && (mouseX < 594) && (mouseY > 8) && (mouseY < 42)){
@@ -95,12 +93,14 @@ function gameOn() {
   text("SCORE: "+ score, 140, 30)
   if (gameFase == 1) {
     stroke(255);
-    if (mouseIsPressed) {
+    if ( mouseY > 280 && mouseX < 90) {
       strokeWeight(dist(mouseX, mouseY, 90, 260) / 15)
       line(mouseX, mouseY, 90, 260);
-      mouseWasPressed = true;
-//      song.play();
-    } else if (mouseWasPressed) {
+      if (mouseIsPressed) {
+        mouseWasPressed = true;
+      }
+    } 
+    if (mouseWasPressed &&  mouseY > 280 && mouseX < 90) {
       mouseWasPressed = false
       xKracht = abs(mouseX - 90);
       yKracht = abs(mouseY - 260);
@@ -109,8 +109,6 @@ function gameOn() {
       ySnelheid = 0;
       xPositie = 70
       gameFase = 2;
-      cursor();
-
     }
   }else if (gameFase == 2) {
     relProjectiel(xKracht, yKracht);
