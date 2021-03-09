@@ -3,6 +3,7 @@ var schuif = 0;
 var score = 0;
 var mouseWasPressed = false;
 let song;
+let muziekAan = true
 var oof;
 
 
@@ -13,6 +14,9 @@ function preload() {
   relschopperimg = loadImage("image/relschopper.png");
   relProjectielimg = loadImage("image/RELprojectiel.png");
   ggdMedewerkerimg = loadImage("image/ggdMedewerker.png");
+  geluidAan = loadImage("image/geluidAan.png");
+  geluidUit = loadImage("image/geluidUit.png");
+
   song = loadSound('sounds/SoundsOfYourHeartbeat.mp3');
   oof= loadSound('sounds/oof.mp3');
 }
@@ -25,7 +29,6 @@ function setup() {
 
 
 function draw() {
-
   image(bg, -schuif, 0, 1800, 400)
   if (screen == 0) {
     startscherm();
@@ -40,15 +43,36 @@ function draw() {
 }
 
 function gameOn() {
-  if (!song.isPlaying()) {
-    song.play();
+  muis = ""
+  if (!song.isPlaying() && muziekAan) {
+   song.play();
+  } else if (song.isPlaying() && !muziekAan){
+    song.stop()
   }
+
+  
   image(bg, -schuif, 0, 2400, 400);
+  image(geluidAan, 550, 8, 34, 34);
   relschopper();
   ggdMedewerker();
   noStroke();
+  if (muziekAan) {
+    image(geluidAan, 550, 8, 34, 34);    
+  } else{
+    image(geluidUit, 550, 8, 34, 34);   
+  }
+    if ((mouseX > 550) && (mouseX < 594) && (mouseY > 8) && (mouseY < 42)){
+    muis = "pointer"
+    image(geluidAan, 550, 8, 34, 34);
+    if (!mouseIsPressed && mouseWasPressed) {
+      mouseWasPressed = false;
+      muziekAan = !muziekAan
+    } else if (mouseIsPressed) {
+      mouseWasPressed = true;
+    }
+  }
   if ((mouseX > 10) && (mouseX < 70) && (mouseY > 10) && (mouseY < 40)){
-    cursor("pointer")
+    muis = "pointer"
     fill(223, 130, 22);
     if (!mouseIsPressed && mouseWasPressed) {
       mouseWasPressed = false;
@@ -59,9 +83,9 @@ function gameOn() {
       mouseWasPressed = true;
     }
   }else {
-    cursor()
     fill(oranje)
   }
+  cursor(muis)
   rect(10, 10, 60, 30, 10)
   fill(oranje)
   rect(100, 10, 85, 30, 10)
@@ -70,7 +94,6 @@ function gameOn() {
   text("MENU", 40,30)
   text("SCORE: "+ score, 140, 30)
   if (gameFase == 1) {
-    cursor("pointer");
     stroke(255);
     if (mouseIsPressed) {
       strokeWeight(dist(mouseX, mouseY, 90, 260) / 15)
