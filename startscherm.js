@@ -12,6 +12,7 @@ function startscherm() {
     if (!mouseIsPressed && mouseWasPressed) {
       mouseWasPressed = false;
       gameFase = 1;
+      score = 3
       screen = 1;
     } else if (mouseIsPressed) {
       mouseWasPressed = true;

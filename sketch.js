@@ -1,6 +1,5 @@
 var screen = 0;
 var schuif = 0;
-var score = 0;
 var mouseWasPressed = false;
 let song;
 let muziekAan = true
@@ -40,13 +39,18 @@ function draw() {
   else if (screen == 3) {
     highScoreScreen()
   }
+  else if (screen == 4){
+    gameOverScreen()
+  }
 }
 
 function gameOn() {
-  muis = ""
+  if (score < 1) {
+    screen = 4;
+  }
 
+  muis = ""
   image(bg, -schuif, 0, 2400, 400);
-  image(geluidAan, 550, 8, 34, 34);
   relschopper();
   ggdMedewerker();
   noStroke();
@@ -144,4 +148,19 @@ function highScoreScreen() {
   text('komt hierzo', width / 2, height / 2 + 20);
   fill(oranje)
   rect(width / 2 - 100, height / 2 - 60, 200, 50, 10)
+}
+
+function gameOverScreen() {
+  background(0, 0, 0)
+  fill(255)
+  text("GAME OVER", 300, 200)
+  cursor("pointer")
+  if (mouseIsPressed) {
+    mouseWasPressed=true
+  }else if (mouseWasPressed) {
+    screen = 0;
+    schuif = 0;
+    mouseWasPressed = false
+  }
+
 }
