@@ -4,11 +4,12 @@ var mouseWasPressed = false;
 let song;
 let muziekAan = true
 var oof;
-
+var knipper = 0;
 
 function preload() {
   oranje = color(246, 178, 107);
-  bg = loadImage('image/AchtergrondGame.png');
+  bg = loadImage
+  ('image/AchtergrondGame.png');
   logo = loadImage('image/logo.png');
   relschopperimg = loadImage("image/relschopper.png");
   relProjectielimg = loadImage("image/RELprojectiel.png");
@@ -47,6 +48,7 @@ function draw() {
 function gameOn() {
   if (score < 1) {
     screen = 4;
+    wit = true
   }
 
   muis = ""
@@ -151,8 +153,21 @@ function highScoreScreen() {
 }
 
 function gameOverScreen() {
+  if (knipper > 40) {
+  wit = !wit
+  knipper = 0
+  background(255,255,255)
+  fill(0)
+  }else if(wit) {
+  knipper = knipper + 1;
   background(0, 0, 0)
-  fill(255)
+  fill(255)    
+  }else{
+    knipper = knipper + 1;    
+    background(255,255,255)
+    fill(0)
+  }
+  textSize(35)
   text("GAME OVER", 300, 200)
   cursor("pointer")
   if (mouseIsPressed) {
