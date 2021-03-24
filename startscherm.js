@@ -13,7 +13,9 @@ function startscherm() {
       mouseWasPressed = false;
       gameFase = 1;
       score = 3
-      screen = 1;
+      screen = 1
+      cursor()
+
     } else if (mouseIsPressed) {
       mouseWasPressed = true;
     }
@@ -45,6 +47,7 @@ function startscherm() {
   textSize(25)
   fill(0)
   text('HIGHSCORES', width / 2, height / 2 + 35);
+  triangle(300, 200, 300, 220, 330, 210)
   text('START', width / 2, height / 2 - 25)
 
 }

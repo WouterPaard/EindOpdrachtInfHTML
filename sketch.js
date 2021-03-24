@@ -43,6 +43,9 @@ function draw() {
   else if (screen == 4){
     gameOverScreen()
   }
+  else if (screen == 5){
+    uitlegVraag()
+  }
 }
 
 function gameOn() {
