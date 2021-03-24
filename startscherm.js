@@ -47,7 +47,7 @@ function startscherm() {
   textSize(25)
   fill(0)
   text('HIGHSCORES', width / 2, height / 2 + 35);
-  triangle(300, 200, 300, 220, 330, 210)
-  text('START', width / 2, height / 2 - 25)
+  triangle(230, 155, 230, 175, 250, 165)
 
+  text('START', width / 2, height / 2 - 25)
 }
