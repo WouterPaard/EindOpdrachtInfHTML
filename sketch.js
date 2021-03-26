@@ -6,6 +6,7 @@ let muziekAan = true
 var oof;
 var knipper = 0;
 var gameover;
+var knop;
 
 function preload() {
   oranje = color(246, 178, 107);
@@ -23,6 +24,8 @@ function preload() {
 
   oof= loadSound('sounds/oof.mp3');
   gameover = loadSound('sounds/gameover.mp3')
+  
+  knop = loadSound('song/kilk.mp3');
 }
 
 
@@ -58,6 +61,7 @@ function gameOn() {
     wit = true
   }
 
+
   muis = ""
   image(bg, -schuif, 0, 2400, 400);
   relschopper();
@@ -66,12 +70,16 @@ function gameOn() {
   if (muziekAan) {
     if (!song.isPlaying()) {
      song.play();
+     image(geluidAan, 550, 8, 34, 34); 
     }
-    image(geluidAan, 550, 8, 34, 34);    
-  } else{
+
+  else {
     song.pause();
-    image(geluidUit, 550, 8, 34, 34);   
-  }
+    image(geluidUit, 550, 8, 34, 34);  
+  }  
+
+
+  
     if ((mouseX > 550) && (mouseX < 594) && (mouseY > 8) && (mouseY < 42)){
     muis = "pointer"
     image(geluidAan, 550, 8, 34, 34);
@@ -148,6 +156,7 @@ function gameOn() {
       gameFase = 1;
     }
   }
+
 }
 
 function highScoreScreen() {
@@ -178,14 +187,10 @@ function gameOverScreen() {
   textSize(35)
   text("GAME OVER", 300, 200)
   cursor("pointer")
-  song.pause();
-  gameover.play();
   if (mouseIsPressed) {
     mouseWasPressed=true
   }else if (mouseWasPressed) {
-    screen = 0;
-    schuif = 0;
-    mouseWasPressed = false
-  }
-
-}
+ifed = false
+  if (muziekAan) {
+    if (!song.isPlaying()) {
+     song.play();  }

@@ -51,3 +51,5 @@ function startscherm() {
 
   text('START', width / 2, height / 2 - 25)
 }
+
+
