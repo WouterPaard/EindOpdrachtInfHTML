@@ -7,10 +7,8 @@ function ggdProjectiel(xKracht, yKracht){
   yPositie = 230 - ySnelheid*herhaling
   image(relProjectielimg, xPositie, yPositie, relProjectielimg.width /6, relProjectielimg.height /6)
   if (yPositie > 320) {
-    console.log("lager dan 270")
     gameFase = 5;
   } else if ((yPositie > 210) && (xPositie > 70-schuif) && (xPositie < 130 - schuif)){
-    console.log("raakt die papi")
     gameFase = 5;
     score = score - 1;
     if (!oof.isPlaying()) {
