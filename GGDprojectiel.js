@@ -10,7 +10,7 @@ function ggdProjectiel(xKracht, yKracht){
     gameFase = 5;
   } else if ((yPositie > 210) && (xPositie > 70-schuif) && (xPositie < 130 - schuif)){
     gameFase = 5;
-    score = score - 1;
+    life = score - 1;
     if (!oof.isPlaying()) {
       oof.play();
     }

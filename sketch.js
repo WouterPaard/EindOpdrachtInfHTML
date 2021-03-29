@@ -7,6 +7,7 @@ var oof;
 var knipper = 0;
 var gameover;
 var knop;
+var score = 0;
 
 function preload() {
   oranje = color(246, 178, 107);
@@ -55,7 +56,7 @@ function draw() {
 }
 
 function gameOn() {
-  if (score < 1) {
+  if (life < 1) {
     screen = 4;
     wit = true
   }
@@ -110,6 +111,7 @@ function gameOn() {
   textSize(15)
   text("MENU", 40, 30)
   text("SCORE: " + score, 140, 30)
+  text("LIVE'S: " + life, 240, 30)
   if (gameFase == 1) {
     stroke(255);
     if (mouseY > 280 && mouseX < 90) {
@@ -166,21 +168,27 @@ function highScoreScreen() {
 }
 
 function gameOverScreen() {
-  if (knipper > 40) {
-    wit = !wit
-    knipper = 0
-    background(255, 255, 255)
-    fill(0)
-  } else if (wit) {
-    knipper = knipper + 1;
-    background(0, 0, 0)
-    fill(255)
+  let highscore = localStorage.getItem('highscore');
 
-  } else {
-    knipper = knipper + 1;
-    background(255, 255, 255)
-    fill(0)
-  }
+  if (score > highscore)
+     localStorage.setItem('highscore', score);
+ text('Highscore: ' + highscore, width / 2, height / 2 + 20 ); 
+
+ //if (knipper > 40) {
+    //wit = !wit
+    //knipper = 0
+    //background(255, 255, 255)
+    //fill(0)
+  //} else if (wit) {
+   // knipper = knipper + 1;
+   // background(0, 0, 0)
+    //fill(255)
+
+  //} else {
+   // knipper = knipper + 1;
+    //background(255, 255, 255)
+    //fill(0)
+  //}
   textSize(35)
   text("GAME OVER", 300, 200)
   cursor("pointer")
