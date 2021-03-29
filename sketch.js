@@ -18,8 +18,8 @@ function preload() {
   relschopperimg = loadImage("image/relschopper.png");
   relProjectielimg = loadImage("image/RELprojectiel.png");
   ggdMedewerkerimg = loadImage("image/ggdMedewerker.png");
-  geluidAan = loadImage("image/geluidAan.png");
-  geluidUit = loadImage("image/geluidUit.png");
+  geluidAan = loadImage("image/geluidAan2.png");
+  geluidUit = loadImage("image/geluidUit2.png");
   hill = loadImage("image/hill.png")
   wolken = loadImage("image/LuchtMetWolken.png")
 
@@ -114,7 +114,7 @@ function gameOn() {
   textSize(15)
   text("MENU", 40, 30)
   text("SCORE: " + score, 140, 30)
-  text("LIVE'S: " + life, 240, 30)
+  text("LIVES: " + life, 240, 30)
   if (gameFase == 1) {
     stroke(255);
     if (mouseY > 280 && mouseX < 90) {
