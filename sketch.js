@@ -107,7 +107,10 @@ function gameOn() {
   rect(10, 10, 60, 30, 10)
   fill(oranje)
   rect(100, 10, 85, 30, 10)
+  rect(200, 10, 90, 30, 10)
   fill(0)
+  
+
   textSize(15)
   text("MENU", 40, 30)
   text("SCORE: " + score, 140, 30)
@@ -206,4 +209,3 @@ function gameOverScreen() {
   }
 
 }
-
