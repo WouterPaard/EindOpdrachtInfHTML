@@ -164,12 +164,18 @@ function gameOn() {
 }
 
 function highScoreScreen() {
-  fill(0)
-  loadImage('image/BackgroundMenu.png');
-  text('scoreboard:', width / 2, height / 2 + 35)
-  text('HIGHSCORE: ' + highscore, width / 2, height / 2 + 20);
   fill(oranje)
-  rect(width / 2 - 100, height / 2 - 60, 200, 50, 10)
+  rect(width / 2 - 100, height / 2 - 170, 200, 50, 10)
+  rect(width / 2 - 150, height / 2 - 100, 300, 250, 10)
+
+  fill(0)
+  
+  loadImage('image/BackgroundMenu.png');
+  text('SCOREBOARD', width / 2, height / 2 - 140)
+  text('HIGHSCORE: ' + highscore, width / 2, height / 2 - 20);
+  text('YOUR SCORE: ' + score, width / 2, height / 2 + 20)
+  
+  
   
 }
 
@@ -194,6 +200,8 @@ function gameOverScreen() {
     //background(255, 255, 255)
     //fill(0)
   //}
+  
+  
   textSize(35)
   text("GAME OVER", 300, 200)
   cursor("pointer")
