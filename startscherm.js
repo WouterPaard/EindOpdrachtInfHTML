@@ -12,7 +12,7 @@ function startscherm() {
     if (!mouseIsPressed && mouseWasPressed) {
       mouseWasPressed = false;
       gameFase = 1;
-      life = 0
+      life = 2
       screen = 1
       cursor()
 

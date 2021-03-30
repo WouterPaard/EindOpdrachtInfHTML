@@ -18,7 +18,7 @@ function preload() {
   logo = loadImage('image/logo.png');
   relschopperimg = loadImage("image/relschopper.png");
   relProjectielimg = loadImage("image/RELprojectiel.png");
-  ggdProjectielimg = loadImage("image/Vaccin.png");
+  ggdProjectielimg = loadImage("image/Vaccin1.png");
   ggdMedewerkerimg = loadImage("image/ggdMedewerker.png");
   geluidAan = loadImage("image/geluidAan2.png");
   geluidUit = loadImage("image/geluidUit2.png");
