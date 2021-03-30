@@ -184,7 +184,7 @@ function gameOverScreen() {
   if (score > highscore)
      localStorage.setItem('highscore', score);
  text('Highscore: ' + highscore, width / 2, height / 2 + 20 ); 
-
+  text('YOUR SCORE: ' + score,width / 2, height / 2 + 30 );
  //if (knipper > 40) {
     //wit = !wit
     //knipper = 0
