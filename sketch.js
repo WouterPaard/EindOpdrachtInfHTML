@@ -8,6 +8,7 @@ var knipper = 0;
 var gameover;
 var knop;
 var score = 0;
+let highscore = localStorage.getItem('highscore');
 
 function preload() {
   oranje = color(246, 178, 107);
@@ -164,15 +165,15 @@ function gameOn() {
 
 function highScoreScreen() {
   fill(0)
-  image(bg, 0, 0, 600, 400)
+  loadImage('image/BackgroundMenu.png');
   text('scoreboard:', width / 2, height / 2 + 35)
-  text('komt hierzo', width / 2, height / 2 + 20);
+  text('HIGHSCORE: ' + highscore, width / 2, height / 2 + 20);
   fill(oranje)
   rect(width / 2 - 100, height / 2 - 60, 200, 50, 10)
+  
 }
 
 function gameOverScreen() {
-  let highscore = localStorage.getItem('highscore');
 
   if (score > highscore)
      localStorage.setItem('highscore', score);
