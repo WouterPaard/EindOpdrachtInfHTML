@@ -38,7 +38,7 @@ function preload() {
   knop = loadSound('sounds/klik.mp3');
 
   //highscore resetten
-  
+   //localStorage.setItem('highscore', 0);
 }
 
 
@@ -204,19 +204,19 @@ function highScoreScreen() {
   loadImage('image/BackgroundMenu.png');
   text('SCOREBOARD', width / 2, height / 2 - 140);
   if (score <= highscore) {
-    fill(0)
-    textSize(15)
-    text("MENU", 40, 30)
-    textAlign(CENTER)
-    textSize(25)
+    //fill(0)
+    //textSize(15)
+    //text("MENU", 40, 30)
+    //textAlign(CENTER)
+    //textSize(25)
     text('HIGHSCORE: ' + highscore, width / 2, height / 2 - 20);
   }
   else if (score > highscore) {
-    fill(0)
-    textSize(15)
-    text("MENU", 40, 30)
-    textAlign(CENTER)
-    textSize(25)
+    //fill(0)
+    //textSize(15)
+    //text("MENU", 40, 30)
+    //textAlign(CENTER)
+    //textSize(25)
     text('HIGHSCORE: ' + score, width / 2, height / 2 - 20);
   }
   text('YOUR SCORE: ' + score, width / 2, height / 2 + 20);
