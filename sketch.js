@@ -181,8 +181,6 @@ function highScoreScreen() {
 }
   rect(10, 10, 60, 30, 10)
 
-
-
   fill(oranje)
   rect(width / 2 - 150, height / 2 - 100, 300, 250, 10)
   rect(width / 2 - 100, height / 2 - 170, 200, 50, 10)
@@ -194,7 +192,21 @@ function highScoreScreen() {
 
   loadImage('image/BackgroundMenu.png');
   text('SCOREBOARD', width / 2, height / 2 - 140);
-  text('HIGHSCORE: ' + highscore, width / 2, height / 2 - 20);
+  if (score <= highscore) {
+    fill(0)
+    textSize(15)
+    text("MENU", 40, 30)
+    textAlign(CENTER)
+    textSize(25)
+    text('HIGHSCORE: ' + highscore, width / 2, height / 2 - 20); }
+  else if (score > highscore) {
+    fill(0)
+    textSize(15)
+    text("MENU", 40, 30)
+    textAlign(CENTER)
+    textSize(25)
+    text('HIGHSCORE: ' + score, width / 2, height / 2 - 20); 
+  }
   text('YOUR SCORE: ' + score, width / 2, height / 2 + 20); 
 }
 
@@ -202,7 +214,6 @@ function highScoreScreen() {
 
 
 function gameOverScreen() {
-
   
  if (knipper > 40) {
     wit = !wit
