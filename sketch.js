@@ -1,6 +1,6 @@
 //variable voor gameplay
 let muziekAan = true
-beginlevens = 1;
+beginlevens = 2;
 //getal tussen 20 (altijdraak) en 33 (meestal mis)
 onnauwkeurigheidGGD = 25;
 
@@ -204,19 +204,9 @@ function highScoreScreen() {
   loadImage('image/BackgroundMenu.png');
   text('SCOREBOARD', width / 2, height / 2 - 140);
   if (score <= highscore) {
-    //fill(0)
-    //textSize(15)
-    //text("MENU", 40, 30)
-    //textAlign(CENTER)
-    //textSize(25)
     text('HIGHSCORE: ' + highscore, width / 2, height / 2 - 20);
   }
   else if (score > highscore) {
-    //fill(0)
-    //textSize(15)
-    //text("MENU", 40, 30)
-    //textAlign(CENTER)
-    //textSize(25)
     text('HIGHSCORE: ' + score, width / 2, height / 2 - 20);
   }
   text('YOUR SCORE: ' + score, width / 2, height / 2 + 20);
