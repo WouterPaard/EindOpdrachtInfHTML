@@ -12,7 +12,7 @@ function relProjectiel(xKracht, yKracht) {
     console.log("raakt die papi")
     gameFase = 3;
     score = score + 1;
-    life = life + 1;
+    life = life ;
     if (!oof.isPlaying()) {
       oof.play();
     }

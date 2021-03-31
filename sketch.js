@@ -201,11 +201,21 @@ function gameOverScreen() {
   }
   textSize(35)
   text("GAME OVER", 300, 125)
-  textSize(25)
-  if (score > highscore)
+  
+  if (score > highscore) {
      localStorage.setItem('highscore', score);
- text('HIGHSCORE: ' + highscore, width / 2, height / 2 - 10 ); 
+ text('HIGHSCORE: ' + score, width / 2, height / 2 - 10 ); 
   text('YOUR SCORE: ' + score,width / 2, height / 2 + 40 );
+  textSize(25)
+  cursor("pointer")
+  }
+  else if (score <= highscore) {
+      localStorage.setItem('highscore', score);
+  text('HIGHSCORE: ' + highscore, width / 2, height / 2 - 10 ); 
+  text('YOUR SCORE: ' + score,width / 2, height / 2 + 40 );
+  textSize(25)
+  cursor("pointer")
+  }
   cursor("pointer")
   if (mouseIsPressed) {
     mouseWasPressed = true
