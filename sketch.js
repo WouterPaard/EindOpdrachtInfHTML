@@ -164,22 +164,42 @@ function gameOn() {
 }
 
 function highScoreScreen() {
+
+  if ((mouseX > 10) && (mouseX < 70) && (mouseY > 10) && (mouseY < 40)) {
+  muis = "pointer"
+  fill(223, 130, 22);
+  if (!mouseIsPressed && mouseWasPressed) {
+    mouseWasPressed = false;
+    screen = 0;
+    schuif = 0;
+    gameFase = 1
+  } else if (mouseIsPressed) {
+    mouseWasPressed = true;
+  }
+} else {
   fill(oranje)
-  rect(width / 2 - 100, height / 2 - 170, 200, 50, 10)
-  rect(width / 2 - 150, height / 2 - 100, 300, 250, 10)
+}
   rect(10, 10, 60, 30, 10)
 
+
+
+  fill(oranje)
+  rect(width / 2 - 150, height / 2 - 100, 300, 250, 10)
+  rect(width / 2 - 100, height / 2 - 170, 200, 50, 10)
   fill(0)
+  textSize(15)
+  text("MENU", 40, 30)
   textAlign(CENTER)
   textSize(25)
+
   loadImage('image/BackgroundMenu.png');
   text('SCOREBOARD', width / 2, height / 2 - 140);
   text('HIGHSCORE: ' + highscore, width / 2, height / 2 - 20);
-  text('YOUR SCORE: ' + score, width / 2, height / 2 + 20);
-  text("MENU", 40, 30)
-  
-  
+  text('YOUR SCORE: ' + score, width / 2, height / 2 + 20); 
 }
+
+
+
 
 function gameOverScreen() {
 
