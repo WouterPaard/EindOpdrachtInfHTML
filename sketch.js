@@ -1,8 +1,14 @@
+//variable voor gameplay
+let muziekAan = true
+beginlevens = 1;
+//getal tussen 20 (altijdraak) en 33 (meestal mis)
+onnauwkeurigheidGGD = 25;
+
+
 var screen = 0;
 var schuif = 0;
 var mouseWasPressed = false;
 let song;
-let muziekAan = true
 var oof;
 var knipper = 0;
 var gameover;
@@ -30,6 +36,9 @@ function preload() {
   oof = loadSound('sounds/oof.mp3');
   gameover = loadSound('sounds/gameover.mp3')
   knop = loadSound('sounds/klik.mp3');
+
+  //highscore resetten
+  
 }
 
 
@@ -40,8 +49,8 @@ function setup() {
 
 
 function draw() {
-  image(wolken, -0.3*schuif-350, 0, 1500, 183)
-  image(hill, -schuif-350, 0, 1800, 400)
+  image(wolken, -0.3 * schuif - 350, 0, 1500, 183)
+  image(hill, -schuif - 350, 0, 1800, 400)
   if (screen == 0) {
     startscherm();
   } else if (screen == 1) {
@@ -72,7 +81,7 @@ function gameOn() {
     if (!song.isPlaying()) {
       song.play();
     }
-  image(geluidAan, 550, 8, 34, 34);
+    image(geluidAan, 550, 8, 34, 34);
   }
   else {
     song.pause();
@@ -111,7 +120,7 @@ function gameOn() {
   rect(100, 10, 85, 30, 10)
   rect(200, 10, 90, 30, 10)
   fill(0)
-  
+
 
   textSize(15)
   text("MENU", 40, 30)
@@ -144,8 +153,8 @@ function gameOn() {
     schuif = 550 / 20 + 19 * schuif / 20 // + (550 - schuif)/20;
     if (round(schuif) == 550) {
       gameFase = 4
-      xKracht = -random(70, 105);
-      yKracht = random(60, 125);
+      xKracht = -random(88-onnauwkeurigheidGGD, 88 + onnauwkeurigheidGGD);
+      yKracht = random(90-onnauwkeurigheidGGD, 90+onnauwkeurigheidGGD);
       herhaling = 0;
       xSnelheid = 0;
       ySnelheid = 0;
@@ -166,20 +175,22 @@ function gameOn() {
 function highScoreScreen() {
 
   if ((mouseX > 10) && (mouseX < 70) && (mouseY > 10) && (mouseY < 40)) {
-  muis = "pointer"
-  fill(223, 130, 22);
-  if (!mouseIsPressed && mouseWasPressed) {
-    mouseWasPressed = false;
-    screen = 0;
-    schuif = 0;
-    gameFase = 1
-  } else if (mouseIsPressed) {
-    mouseWasPressed = true;
+    muis = "pointer"
+    fill(223, 130, 22);
+    if (!mouseIsPressed && mouseWasPressed) {
+      mouseWasPressed = false;
+      screen = 0;
+      schuif = 0;
+      gameFase = 1
+    } else if (mouseIsPressed) {
+      mouseWasPressed = true;
+    }
+  } else {
+    fill(oranje)
+    muis = ""
   }
-} else {
-  fill(oranje)
-}
   rect(10, 10, 60, 30, 10)
+  cursor(muis)
 
   fill(oranje)
   rect(width / 2 - 150, height / 2 - 100, 300, 250, 10)
@@ -198,24 +209,25 @@ function highScoreScreen() {
     text("MENU", 40, 30)
     textAlign(CENTER)
     textSize(25)
-    text('HIGHSCORE: ' + highscore, width / 2, height / 2 - 20); }
+    text('HIGHSCORE: ' + highscore, width / 2, height / 2 - 20);
+  }
   else if (score > highscore) {
     fill(0)
     textSize(15)
     text("MENU", 40, 30)
     textAlign(CENTER)
     textSize(25)
-    text('HIGHSCORE: ' + score, width / 2, height / 2 - 20); 
+    text('HIGHSCORE: ' + score, width / 2, height / 2 - 20);
   }
-  text('YOUR SCORE: ' + score, width / 2, height / 2 + 20); 
+  text('YOUR SCORE: ' + score, width / 2, height / 2 + 20);
 }
 
 
 
 
 function gameOverScreen() {
-  
- if (knipper > 40) {
+
+  if (knipper > 40) {
     wit = !wit
     knipper = 0
     background(255, 255, 255)
@@ -232,20 +244,22 @@ function gameOverScreen() {
   }
   textSize(35)
   text("GAME OVER", 300, 125)
-  
+
   if (score > highscore) {
-     localStorage.setItem('highscore', score);
- text('HIGHSCORE: ' + score, width / 2, height / 2 - 10 ); 
-  text('YOUR SCORE: ' + score,width / 2, height / 2 + 40 );
-  textSize(25)
-  cursor("pointer")
+    localStorage.setItem('highscore', score);
+    highscore = score
+    text('HIGHSCORE: ' + score, width / 2, height / 2 - 10);
+    text('YOUR SCORE: ' + score, width / 2, height / 2 + 40);
+    textSize(25)
+    cursor("pointer")
   }
-  else if (score <= highscore) {
-      localStorage.setItem('highscore', score);
-  text('HIGHSCORE: ' + highscore, width / 2, height / 2 - 10 ); 
-  text('YOUR SCORE: ' + score,width / 2, height / 2 + 40 );
-  textSize(25)
-  cursor("pointer")
+  else {
+ //   localStorage.setItem('highscore', score);
+    highscore = localStorage.getItem("highscore")
+    text('HIGHSCORE: ' + highscore, width / 2, height / 2 - 10);
+    text('YOUR SCORE: ' + score, width / 2, height / 2 + 40);
+    textSize(25)
+    cursor("pointer")
   }
   cursor("pointer")
   if (mouseIsPressed) {

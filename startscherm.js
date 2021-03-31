@@ -12,7 +12,8 @@ function startscherm() {
     if (!mouseIsPressed && mouseWasPressed) {
       mouseWasPressed = false;
       gameFase = 1;
-      life = 1
+      life = beginlevens
+      score = 0
       screen = 1
       cursor()
 

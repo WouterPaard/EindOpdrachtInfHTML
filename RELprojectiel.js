@@ -11,8 +11,8 @@ function relProjectiel(xKracht, yKracht) {
   } else if ((yPositie > 230) && (xPositie > 1000 - schuif) && (xPositie < 1060 - schuif)) {
     console.log("raakt die papi")
     gameFase = 3;
-    score = score + 90;
-    life = life ;
+    score = score + 1;
+    life = life + 1;
     if (!oof.isPlaying()) {
       oof.play();
     }
