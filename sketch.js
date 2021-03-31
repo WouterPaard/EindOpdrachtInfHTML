@@ -167,43 +167,45 @@ function highScoreScreen() {
   fill(oranje)
   rect(width / 2 - 100, height / 2 - 170, 200, 50, 10)
   rect(width / 2 - 150, height / 2 - 100, 300, 250, 10)
+  rect(10, 10, 60, 30, 10)
 
   fill(0)
-  
+  textAlign(CENTER)
+  textSize(25)
   loadImage('image/BackgroundMenu.png');
-  text('SCOREBOARD', width / 2, height / 2 - 140)
+  text('SCOREBOARD', width / 2, height / 2 - 140);
   text('HIGHSCORE: ' + highscore, width / 2, height / 2 - 20);
-  text('YOUR SCORE: ' + score, width / 2, height / 2 + 20)
-  
+  text('YOUR SCORE: ' + score, width / 2, height / 2 + 20);
+  text("MENU", 40, 30)
   
   
 }
 
 function gameOverScreen() {
 
+  
+ if (knipper > 40) {
+    wit = !wit
+    knipper = 0
+    background(255, 255, 255)
+    fill(0)
+  } else if (wit) {
+    knipper = knipper + 1;
+    background(0, 0, 0)
+    fill(255)
+
+  } else {
+    knipper = knipper + 1;
+    background(255, 255, 255)
+    fill(0)
+  }
+  textSize(35)
+  text("GAME OVER", 300, 125)
+  textSize(25)
   if (score > highscore)
      localStorage.setItem('highscore', score);
- text('Highscore: ' + highscore, width / 2, height / 2 + 20 ); 
-  text('YOUR SCORE: ' + score,width / 2, height / 2 + 30 );
- //if (knipper > 40) {
-    //wit = !wit
-    //knipper = 0
-    //background(255, 255, 255)
-    //fill(0)
-  //} else if (wit) {
-   // knipper = knipper + 1;
-   // background(0, 0, 0)
-    //fill(255)
-
-  //} else {
-   // knipper = knipper + 1;
-    //background(255, 255, 255)
-    //fill(0)
-  //}
-  
-  
-  textSize(35)
-  text("GAME OVER", 300, 200)
+ text('HIGHSCORE: ' + highscore, width / 2, height / 2 - 10 ); 
+  text('YOUR SCORE: ' + score,width / 2, height / 2 + 40 );
   cursor("pointer")
   if (mouseIsPressed) {
     mouseWasPressed = true
