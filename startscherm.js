@@ -12,6 +12,8 @@ function startscherm() {
     if (!mouseIsPressed && mouseWasPressed) {
       mouseWasPressed = false;
       gameFase = 1;
+      if (!knop.isPlaying()) {
+      knop.play();}
       life = beginlevens
       score = 0
       screen = 1
@@ -31,6 +33,8 @@ function startscherm() {
     if (!mouseIsPressed && mouseWasPressed) {
       mouseWasPressed = false;
       screen = 3;
+      if (!knop.isPlaying()) {
+      knop.play();}
     } else if (mouseIsPressed) {
       mouseWasPressed = true;
     }
@@ -52,5 +56,3 @@ function startscherm() {
 
   text('START', width / 2, height / 2 - 25)
 }
-
-

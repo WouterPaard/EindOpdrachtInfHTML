@@ -38,7 +38,7 @@ function preload() {
   knop = loadSound('sounds/klik.mp3');
 
   //highscore resetten
-   //localStorage.setItem('highscore', 0);
+  //localStorage.setItem('highscore', 0);
 }
 
 
@@ -153,8 +153,8 @@ function gameOn() {
     schuif = 550 / 20 + 19 * schuif / 20 // + (550 - schuif)/20;
     if (round(schuif) == 550) {
       gameFase = 4
-      xKracht = -random(88-onnauwkeurigheidGGD, 88 + onnauwkeurigheidGGD);
-      yKracht = random(90-onnauwkeurigheidGGD, 90+onnauwkeurigheidGGD);
+      xKracht = -random(88 - onnauwkeurigheidGGD, 88 + onnauwkeurigheidGGD);
+      yKracht = random(90 - onnauwkeurigheidGGD, 90 + onnauwkeurigheidGGD);
       herhaling = 0;
       xSnelheid = 0;
       ySnelheid = 0;
@@ -244,7 +244,7 @@ function gameOverScreen() {
     cursor("pointer")
   }
   else {
- //   localStorage.setItem('highscore', score);
+    //   localStorage.setItem('highscore', score);
     highscore = localStorage.getItem("highscore")
     text('HIGHSCORE: ' + highscore, width / 2, height / 2 - 10);
     text('YOUR SCORE: ' + score, width / 2, height / 2 + 40);
