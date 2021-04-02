@@ -95,6 +95,8 @@ function gameOn() {
     image(geluidAan, 550, 8, 34, 34);
     if (!mouseIsPressed && mouseWasPressed) {
       mouseWasPressed = false;
+      if (!knop.isPlaying()) {
+      knop.play();}
       muziekAan = !muziekAan
     } else if (mouseIsPressed) {
       mouseWasPressed = true;
@@ -107,6 +109,8 @@ function gameOn() {
       mouseWasPressed = false;
       screen = 0;
       schuif = 0;
+      if (!knop.isPlaying()) {
+      knop.play();}
       gameFase = 1
     } else if (mouseIsPressed) {
       mouseWasPressed = true;
@@ -181,6 +185,8 @@ function highScoreScreen() {
       mouseWasPressed = false;
       screen = 0;
       schuif = 0;
+      if (!knop.isPlaying()) {
+      knop.play();}
       gameFase = 1
     } else if (mouseIsPressed) {
       mouseWasPressed = true;
